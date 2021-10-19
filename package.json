@@ -1,0 +1,42 @@
+{
+  "name": "discordbot-script-eris",
+  "version": "1.0.0",
+  "description": "A better version discordbot-script.",
+  "main": "./build/index.js",
+  "scripts": {
+    "start": "tsc",
+    "test": "node ./build/test/bot.test.js"
+  },
+  "keywords": [
+    "discordbot",
+    "eris",
+    "fast",
+    "discord",
+    "bots",
+    "client",
+    "bdfd",
+    "dbd",
+    "api",
+    "discord",
+    "bdfd",
+    "bot designer for discord",
+    "bot",
+    "dbs",
+    "db-script",
+    "discordbot-script",
+    "dbscript",
+    "discordapi"
+  ],
+  "author": "Wayvshock",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^13.2.0",
+    "eris": "github:DonovanDMC/eris#everything"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.0.1",
+    "typescript-eslint-language-service": "^4.1.5"
+  }
+}

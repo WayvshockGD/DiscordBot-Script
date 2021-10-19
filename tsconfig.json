@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "module": "CommonJS",
+        "watch": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "strictPropertyInitialization": true,
+        "strictFunctionTypes": true,
+        "incremental": true,
+        "pretty": true,
+        "resolveJsonModule": true,
+        "outDir": "./build",
+        "plugins": [{
+            "name": "typescript-eslint-language-service",
+        }],
+    },
+    "exclude": ["node_modules"]
+}
