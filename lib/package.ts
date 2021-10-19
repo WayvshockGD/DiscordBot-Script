@@ -1,5 +1,6 @@
 import Eris from "eris";
-import { DBClientOptions } from "./Types";
+import { DBClientOptions } from "./types/Types";
+import { returnError } from "./util/Util";
 
 export = class DiscordBotScript {
     public client: Eris.Client;
@@ -16,5 +17,9 @@ export = class DiscordBotScript {
         this.token = token;
     }
 
-    public async connect() {}
+    public async connect() {
+        await this.client.connect()
+           .catch(err => {throw returnError(err)})
+           .then(() => true);
+    }
 }

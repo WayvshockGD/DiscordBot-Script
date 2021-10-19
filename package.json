@@ -30,6 +30,7 @@
   "author": "Wayvshock",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^4.1.2",
     "discord.js": "^13.2.0",
     "eris": "github:DonovanDMC/eris#everything"
   },
