@@ -24,11 +24,16 @@ export = class DiscordBotScript {
         this.caches = new BotCaches();
 
         this.token = token;
+
+        (async () => await this.connect())();
     }
 
-    public loadCommand(name: string, d_: CommandMetaData) {
-        if (typeof name === "undefined") throw returnError("'loadCommand()' is missing a name...");
-        if (typeof d_ === "undefined") throw returnError("'loadCommand()' is missing command options.");
+    public loadCommand<V>(CommandMetaCommandData: CommandMetaData<V>) {
+        let d = CommandMetaCommandData;
+        let d_ = CommandMetaCommandData;
+
+        if (typeof d_ === "undefined") throw returnError("'loadCommand()' is missing property command options.");
+        if (typeof d_.name === "undefined") throw returnError("'loadCommand()' is missing a name...");
         
         if (d_.code.embeds) {
             for (let [id, data] of Object.entries(d_.code.embeds)) {
@@ -36,14 +41,14 @@ export = class DiscordBotScript {
             }
         }
 
-        this.caches.commands.set(name, d_);
+        this.caches.commands.set(d_.name, d);
     }
 
     public get getPackageMeta(): typeof _meta {
         return _meta;
     }
 
-    public async connect() {
+    private async connect() {
         return await this.client.connect()
            .catch(err => {throw returnError(err)})
            .then(() => true);

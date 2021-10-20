@@ -3,18 +3,27 @@ import Eris from "eris";
 export type EmbedCommandData = { [id: string]: Eris.EmbedOptions[] };
 export type EmbedCommandDataMap = Map<string, EmbedCommandData>;
 
-export interface CommandMetaData<V = boolean> {
+export type MapWithID<Val> = Map<string, Val>;
+
+export interface CommandMetaData<V> {
     name: string;
     code: CommandObjectData<V>;
 }
 
 export interface CommandObjectData<V = boolean> {
     embeds?: EmbedCommandData,
-    code: (ctx: CommandContextData) => void;
+    /**
+     * The main part of this. It is used to execute scripts...
+     */
+    executeCode: string;
+    /**
+     * For use with setting message ids and such...
+     */
+    executeMessage?: (ctx: CommandContextData) => void;
     args?: (args: string[]) => V;
 }
 
 export interface CommandContextData {
     embeds: EmbedCommandDataMap;
-    msg: Eris.Message;
+    message: Eris.Message;
 }
