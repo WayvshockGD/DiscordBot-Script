@@ -1,5 +1,5 @@
-import chalk from "chalk";
+import ScriptError from "../ScriptError";
 
-export function returnError(str: unknown) {
-    return new Error(chalk.redBright(str));
-}
+export function returnError(str: string): ScriptError {
+    return new ScriptError(str);
+};

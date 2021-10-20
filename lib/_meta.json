@@ -1,0 +1,20 @@
+{
+    "name": "Discordbot-Script",
+    "version": "1:0:0",
+    "desc": "A package for making discord bots easily, based on discordbot-script on npm.",
+    "developed_with": {
+        "lang": "Typescript",
+        "lib": {
+            "name": "Eris",
+            "version": "github:DonovanDMC/eris#everything"
+        }
+    },
+    "creators": [
+        { "name": "Wayvshock", "title": "Creator" }, 
+        { "name": "Ricky", "title": "Original creator"}
+    ],
+    "disclaimers": [
+        "This package is made with 'Eris' not 'Discord.js'.",
+        "Commands and functions are object-based not text."
+    ]
+}

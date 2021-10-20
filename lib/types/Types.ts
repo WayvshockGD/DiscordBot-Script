@@ -1,7 +1,7 @@
 import Eris from "eris";
 
 export interface DBClientOptions {
-    prefix: string;
+    prefix: string[];
     intents: Eris.ClientOptions["intents"];
 }
 

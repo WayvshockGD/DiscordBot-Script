@@ -1,6 +1,7 @@
 import Eris from "eris";
+import ScriptError from "./ScriptError";
 import { DBClientOptions } from "./types/Types";
-import { returnError } from "./util/Util";
+import _meta from "./_meta.json";
 
 export = class DiscordBotScript {
     public client: Eris.Client;
@@ -8,6 +9,8 @@ export = class DiscordBotScript {
     public token: string;
 
     public constructor(token: string, options: DBClientOptions) {
+
+        if (!token) {}
 
         this.client = new Eris.Client(token, { 
             intents: options.intents ?? [], 
@@ -17,9 +20,13 @@ export = class DiscordBotScript {
         this.token = token;
     }
 
+    public get getPackageMeta(): typeof _meta {
+        return _meta;
+    }
+
     public async connect() {
-        await this.client.connect()
-           .catch(err => {throw returnError(err)})
+        return await this.client.connect()
+           .catch(err => {throw ScriptError.token()})
            .then(() => true);
     }
 }
