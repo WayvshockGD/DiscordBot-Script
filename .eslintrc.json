@@ -15,5 +15,13 @@
     "plugins": [
         "@typescript-eslint"
     ],
-    "rules": {}
+    "rules": {
+        "semi-style": 1,
+        "no-empty": 1,
+        "quotes": 1,
+        "no-empty-function": 1,
+        "no-multi-spaces": 2,
+        "block-spacing": 2,
+        "require-await": 2
+    }
 }
